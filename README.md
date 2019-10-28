@@ -6,6 +6,26 @@ Prerequisites:
 
 ## Installation: 
 
+* Clone repository:
+
+`git clone --.git`
+
+* Go to the directory
+
+`cd network_automation`
+
+* Create virtual environment:
+
+`virtualenv -p python3.x virt-env`
+
+* Activate virtual environment:
+
+`source virt-env/bin/activate`
+
+* Install packages:
+
+`pip install -r requirements.txt`
+
 
 
 
