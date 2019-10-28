@@ -1,10 +1,10 @@
-# network_automation
+# Installing procedure how to build network automation lab
 
 Prerequisites:
 
 * VirtualBox and installed Ubuntu OS 
 
-## Select the Vagrant file
+## Installation: 
 
 
 
