@@ -8,7 +8,7 @@ Prerequisites:
 
 * Clone repository:
 
-`git clone https://github.com/bskulj/network_automation`
+`git clone https://github.com/bskulj/network_automation.git`
 
 * Go to the directory
 
