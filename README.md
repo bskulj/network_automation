@@ -26,6 +26,10 @@ Prerequisites:
 
 `pip install -r requirements.txt`
 
+* If you want to create alias for activating network_automation in virtual environment add this to .bashrc: 
+
+`alias network_automation='cd /$PATH/network_automation && source virt-env/bin/activate'`
+
 
 
 
