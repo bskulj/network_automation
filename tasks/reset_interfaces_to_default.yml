@@ -1,0 +1,29 @@
+- name: Add interface to default value
+  ios_config:
+    provider: "{{ cli }}"
+    force: true
+    lines:
+      - default interface {{ item }}
+  with_items: "{{ managed_devices }}"
+  when: managed_devices[item]['default']
+
+- name: Add description and shutdown the interface
+  ios_config:
+    provider: "{{ cli }}"
+    force: true
+    lines:
+      - shutdown
+      - description {{ managed_devices[item]['description'] }}
+    parents: interface {{ item }}
+  with_items: "{{ managed_devices }}"
+  when: managed_devices[item]['default']
+
+- name: Set OSPF passive interface
+  ios_config:
+    provider: "{{ cli }}"
+    force: true
+    lines:
+      - passive-interface {{ item }}
+    parents: router ospf 1
+  with_items: "{{ managed_devices }}"
+  #when: notmanaged_devices[item]['default']   # set passive on all managed_devices

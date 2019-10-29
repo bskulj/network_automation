@@ -1,0 +1,12 @@
+# - name: Save configuration
+#   ios_config:
+#     provider: "{{ cli }}"
+#     save_when: always
+
+- name: Save configuration
+  ios_command:
+    provider: "{{ cli }}"
+    commands:
+      - wr
+
+

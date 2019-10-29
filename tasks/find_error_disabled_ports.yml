@@ -1,0 +1,20 @@
+- name: Execute command show interfaces | include errdisabled
+  ios_command:
+    provider: "{{ cli }}"
+    commands:
+      - show interface status | inc errdisabled
+  register: result
+
+- debug: var=result
+
+- name: Copy to results folder
+  copy:
+    content: |
+     {{ result.stdout[0] }}
+    dest: "results/{{inventory_hostname}}_show_interfaces_err_disabled.txt"
+  delegate_to: localhost   
+  when:
+    - result['stdout'] != [""]
+
+
+
