@@ -1,0 +1,11 @@
+- name: Get state of routers
+  hosts: all
+  connection: local
+
+  tasks:
+    - name: Include connection data variables
+      include_vars:
+        file: vars/device_connection_data.yml
+
+    - include: tasks/find_error_disabled_ports.yml
+

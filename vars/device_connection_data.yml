@@ -1,0 +1,4 @@
+cli:
+  host: "{{ device_mgmt_ip_loopback }}"
+  username: "{{ device_ssh_username }}"
+  password: "{{ device_ssh_password }}"
