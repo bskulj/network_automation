@@ -1,0 +1,28 @@
+- name: Get facts for leaf routers
+  hosts: mgmt_r1 # all #mgmt_r14
+  connection: local
+  vars:
+    - results: results
+  gather_facts: True
+
+  tasks:
+    - name: Include connection data variables
+      include_vars:
+        file: vars/device_connection_data.yml
+
+    - name: Get IOS facts
+      ios_facts:
+        provider: "{{ cli }}"
+        gather_subset: hardware  #all
+      register: result
+
+    - debug: var=result
+
+    - name: Copy to results folder
+      copy:
+        content: |
+         {{ result.ansible_facts.ansible_net_serialnum }}
+        dest: "results/{{inventory_hostname}}_Serijska_stevilka.txt"
+      delegate_to: localhost   
+
+
