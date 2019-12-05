@@ -1,5 +1,5 @@
 - name: Get state of routers
-  hosts: mgmt_r1 #all 
+  hosts: all # all #mgmt_r14
   connection: local
 
   tasks:

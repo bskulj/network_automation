@@ -1,18 +1,13 @@
 - name: Get facts for leaf routers
-  hosts: mgmt_r1 # all #mgmt_r14
-  connection: local
+  hosts: all # all #mgmt_r1
+  connection: network_cli
   vars:
     - results: results
-  gather_facts: True
+  gather_facts: True # False #True
 
   tasks:
-    - name: Include connection data variables
-      include_vars:
-        file: vars/device_connection_data.yml
-
     - name: Get IOS facts
       ios_facts:
-        provider: "{{ cli }}"
         gather_subset: hardware  #all
       register: result
 
