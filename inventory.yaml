@@ -1,61 +1,7 @@
 all:
   hosts: 
    mgmt_r1:
-    ansible_connection: network_cli
-    ansible_network_os: ios
-    ansible_host: 11.214.38.1
-    ansible_user: root
-    ansible_password: admin123
-    device_family: CISCO
-    device_location: LJU
-    device_mgmt_gw: ""
-    device_mgmt_interface: "loopback 0"
-    device_mgmt_ip: "11.214.38.1"
-    device_mgmt_ip_loopback: "11.214.38.1"
-    device_mgmt_mask: "255.255.255.255"
-    device_model: 3560G
-    device_name: mgmt_r1
-    device_ssh_password: admin123
-    device_ssh_username: root
-    device_type: MGMT_ROUTER_LEAF
-    ntp_server_dst: "Last-Sun-Mar,02:00 Last-Sun-Oct,02:00"
-    ntp_server_ip_primary: "11.214.40.0"
-    ntp_server_ip_secondary: "11.214.40.1"
-    ntp_server_timezone: "+01:00"
-    snmp_server_community: PUBLIC
-    snmp_server_ip: "10.15.201.6"
-    snmp_server_port: 162
-    switch_interfaces: 
-    syslog_server_ip: "10.15.201.6"
-    syslog_server_port: 514
-    syslog_server_protocol: UDP
+    ansible_host: mgmt_r1.local
    mgmt_r10: 
-    ansible_connection: network_cli
-    ansible_network_os: ios
-    ansible_host: 11.214.38.10
-    ansible_user: root
-    ansible_password: admin123
-    device_family: CISCO
-    device_location: LJU
-    device_mgmt_gw: ""
-    device_mgmt_interface: "loopback 0"
-    device_mgmt_ip: "11.214.38.10"
-    device_mgmt_ip_loopback: "11.214.38.10"
-    device_mgmt_mask: "255.255.255.255"
-    device_model: 3560G
-    device_name: mgmt_r10
-    device_ssh_password: admin123
-    device_ssh_username: root
-    device_type: MGMT_ROUTER_LEAF
-    ntp_server_dst: "Last-Sun-Mar,02:00 Last-Sun-Oct,02:00"
-    ntp_server_ip_primary: "11.214.40.0"
-    ntp_server_ip_secondary: "11.214.40.1"
-    ntp_server_timezone: "+01:00"
-    snmp_server_community: PUBLIC
-    snmp_server_ip: "10.15.201.6"
-    snmp_server_port: 162
-    switch_interfaces: 
-    syslog_server_ip: "10.15.201.6"
-    syslog_server_port: 514
-    syslog_server_protocol: UDP
+    ansible_host: mgmt_r10.local
 

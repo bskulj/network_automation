@@ -1,5 +1,5 @@
 - name: Get facts for leaf routers
-  hosts: all # all #mgmt_r1
+  hosts: mgmt_r1 # all #mgmt_r1
   connection: network_cli
   vars:
     - results: results
