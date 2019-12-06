@@ -1,0 +1,30 @@
+- name: Get facts for leaf routers
+  hosts: mgmt_r1 # all #mgmt_r1
+  connection: network_cli
+  vars:
+    - results: results
+  gather_facts: True # False #True
+
+  tasks:
+    - name: Create directory with name "Results"
+      file: path={{results}} state=directory
+      run_once: true
+
+    - name: Get SNMP facts
+      snmp_facts:
+        host: "{{ansible_host}}"
+        version: v2
+        community: PUBLIC
+
+    - name: Get IOS facts
+      ios_facts:
+        gather_subset: hardware  #all
+
+    - debug: var=result
+
+    - name: Copy to results folder
+      copy:
+        content: |
+         {{ hostvars[inventory_hostname]|to_nice_yaml (indent=4) }}
+        dest: "results/{{inventory_hostname}}.yml"
+      delegate_to: localhost  
