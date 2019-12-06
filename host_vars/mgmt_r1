@@ -1,0 +1,363 @@
+"device_connection_method": "ssh",
+"device_enable_secret": "admin123",
+"device_family": "CISCO",
+"device_location": "LJU",
+"device_mgmt_gw": "",
+"device_mgmt_interface": "loopback 0",
+"device_mgmt_ip": "11.214.38.1",
+"device_mgmt_ip_loopback": "11.214.38.1",
+"device_mgmt_mask": "255.255.255.255",
+"device_model": "3560G",
+"device_name": "mgmt_r1",
+"device_ssh_password": "admin123",
+"device_ssh_username": "root",
+"device_type": "MGMT_ROUTER_LEAF",
+"managed_devices": {
+  "GigabitEthernet0/1": {
+    "default": false,
+    "description": "'DEVICE: e1_1 -- PORT: None'",
+    "device_gw": "11.214.36.9",
+    "device_ip": "11.214.36.10",
+    "device_mask": "255.255.255.252",
+    "device_name": "e1_1",
+    "device_network": "11.214.36.8",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/10": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/11": {
+    "default": false,
+    "description": "'DEVICE: w200_21 -- PORT: port01'",
+    "device_gw": "11.214.42.159",
+    "device_ip": "11.214.42.158",
+    "device_mask": "255.255.255.254",
+    "device_name": "w200_21",
+    "device_network": "11.214.42.158",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/12": {
+    "default": false,
+    "description": "'DEVICE: w200_22 -- PORT: port01'",
+    "device_gw": "11.214.42.161",
+    "device_ip": "11.214.42.160",
+    "device_mask": "255.255.255.254",
+    "device_name": "w200_22",
+    "device_network": "11.214.42.160",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/13": {
+    "default": false,
+    "description": "'DEVICE: w200_17 -- PORT: port01'",
+    "device_gw": "11.214.42.167",
+    "device_ip": "11.214.42.166",
+    "device_mask": "255.255.255.254",
+    "device_name": "w200_17",
+    "device_network": "11.214.42.166",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/14": {
+    "default": false,
+    "description": "'DEVICE: w200_18 -- PORT: port01'",
+    "device_gw": "11.214.42.169",
+    "device_ip": "11.214.42.168",
+    "device_mask": "255.255.255.254",
+    "device_name": "w200_18",
+    "device_network": "11.214.42.168",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/15": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/16": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/17": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/18": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/19": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/2": {
+    "default": false,
+    "description": "'DEVICE: e1_2 -- PORT: None'",
+    "device_gw": "11.214.36.13",
+    "device_ip": "11.214.36.14",
+    "device_mask": "255.255.255.252",
+    "device_name": "e1_2",
+    "device_network": "11.214.36.12",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/20": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/21": {
+    "default": false,
+    "description": "'DEVICE: w1_21 -- PORT: port01'",
+    "device_gw": "11.214.40.3",
+    "device_ip": "11.214.40.2",
+    "device_mask": "255.255.255.254",
+    "device_name": "w1_21",
+    "device_network": "11.214.40.2",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/22": {
+    "default": false,
+    "description": "'DEVICE: w1_22 -- PORT: port01'",
+    "device_gw": "11.214.40.5",
+    "device_ip": "11.214.40.4",
+    "device_mask": "255.255.255.254",
+    "device_name": "w1_22",
+    "device_network": "11.214.40.4",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/23": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/24": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/25": {
+    "default": false,
+    "description": "'DEVICE: w1_25 -- PORT: port01'",
+    "device_gw": "11.214.40.11",
+    "device_ip": "11.214.40.10",
+    "device_mask": "255.255.255.254",
+    "device_name": "w1_25",
+    "device_network": "11.214.40.10",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/26": {
+    "default": false,
+    "description": "'DEVICE: w1_26 -- PORT: port01'",
+    "device_gw": "11.214.40.13",
+    "device_ip": "11.214.40.12",
+    "device_mask": "255.255.255.254",
+    "device_name": "w1_26",
+    "device_network": "11.214.40.12",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/27": {
+    "default": false,
+    "description": "'DEVICE: w1_27 -- PORT: port01'",
+    "device_gw": "11.214.40.15",
+    "device_ip": "11.214.40.14",
+    "device_mask": "255.255.255.254",
+    "device_name": "w1_27",
+    "device_network": "11.214.40.14",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/28": {
+    "default": false,
+    "description": "'DEVICE: w1_28 -- PORT: port01'",
+    "device_gw": "11.214.40.17",
+    "device_ip": "11.214.40.16",
+    "device_mask": "255.255.255.254",
+    "device_name": "w1_28",
+    "device_network": "11.214.40.16",
+    "device_wildcard_mask": "0.0.0.1"
+  },
+  "GigabitEthernet0/29": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/3": {
+    "default": false,
+    "description": "'DEVICE: e1_3 -- PORT: None'",
+    "device_gw": "11.214.36.1",
+    "device_ip": "11.214.36.2",
+    "device_mask": "255.255.255.252",
+    "device_name": "e1_3",
+    "device_network": "11.214.36.0",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/30": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/31": {
+    "default": false,
+    "description": "'DEVICE: w1_25_26_IN_BAND -- PORT: port01'",
+    "device_gw": "11.214.36.57",
+    "device_ip": "11.214.36.58",
+    "device_mask": "255.255.255.248",
+    "device_name": "w1_25_26_IN_BAND",
+    "device_network": "11.214.36.56",
+    "device_wildcard_mask": "0.0.0.7"
+  },
+  "GigabitEthernet0/32": {
+    "default": false,
+    "description": "'DEVICE: w1_27_28_IN_BAND -- PORT: port01'",
+    "device_gw": "11.214.42.217",
+    "device_ip": "11.214.42.218",
+    "device_mask": "255.255.255.248",
+    "device_name": "w1_27_28_IN_BAND",
+    "device_network": "11.214.42.216",
+    "device_wildcard_mask": "0.0.0.7"
+  },
+  "GigabitEthernet0/33": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/34": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/35": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/36": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/37": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/38": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/39": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/4": {
+    "default": false,
+    "description": "'DEVICE: e1_4 -- PORT: None'",
+    "device_gw": "11.214.36.5",
+    "device_ip": "11.214.36.6",
+    "device_mask": "255.255.255.252",
+    "device_name": "e1_4",
+    "device_network": "11.214.36.4",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/40": {
+    "default": false,
+    "description": "'DEVICE: console1 -- PORT: {'id': '', 'type': ''}'",
+    "device_gw": "11.214.56.13",
+    "device_ip": "11.214.56.14",
+    "device_mask": "255.255.255.252",
+    "device_name": "console1",
+    "device_network": "11.214.56.12",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/41": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/42": {
+    "default": false,
+    "description": "'DEVICE: att_lite_07 -- PORT: {'id': '', 'type': ''}'",
+    "device_gw": "11.214.56.181",
+    "device_ip": "11.214.56.182",
+    "device_mask": "255.255.255.252",
+    "device_name": "att_lite_07",
+    "device_network": "11.214.56.180",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/43": {
+    "default": false,
+    "description": "'DEVICE: att_lite_10 -- PORT: {'id': '', 'type': ''}'",
+    "device_gw": "11.214.56.205",
+    "device_ip": "11.214.56.206",
+    "device_mask": "255.255.255.252",
+    "device_name": "att_lite_10",
+    "device_network": "11.214.56.204",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/44": {
+    "default": false,
+    "description": "'DEVICE: att_lite_11 -- PORT: {'id': '', 'type': ''}'",
+    "device_gw": "11.214.56.209",
+    "device_ip": "11.214.56.210",
+    "device_mask": "255.255.255.252",
+    "device_name": "att_lite_11",
+    "device_network": "11.214.56.208",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/45": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/46": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/47": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/5": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/6": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/7": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/8": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/9": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  }
+},
+"ntp_server_dst": "Last-Sun-Mar,02:00 Last-Sun-Oct,02:00",
+"ntp_server_ip_primary": "11.214.40.0",
+"ntp_server_ip_secondary": "11.214.40.1",
+"ntp_server_timezone": "+01:00",
+"router_interfaces": {
+  "GigabitEthernet0/51": {
+    "ip": "11.214.38.166",
+    "ipv6": "",
+    "ipv6_prefix_length": "",
+    "mask": "255.255.255.254",
+    "ospf_cost": "10",
+    "ospf_enable": true,
+    "type": "uplink"
+  },
+  "GigabitEthernet0/52": {
+    "ip": "11.214.38.164",
+    "ipv6": "",
+    "ipv6_prefix_length": "",
+    "mask": "255.255.255.254",
+    "ospf_cost": "1",
+    "ospf_enable": true,
+    "type": "uplink"
+  },
+  "Loopback0": {
+    "ip": "11.214.38.1",
+    "ipv6": "fd8d:c6a5:9662:ffff::38:1",
+    "ipv6_prefix_length": "128",
+    "mask": "255.255.255.255",
+    "ospf_enable": true,
+    "type": "loopback"
+  }
+},
+"snmp_server_community": "PUBLIC",
+"snmp_server_ip": "10.15.201.6",
+"snmp_server_port": "162",
+"switch_interfaces": {},
+"syslog_server_ip": "10.15.201.6",
+"syslog_server_port": "514",
+"syslog_server_protocol": "UDP"

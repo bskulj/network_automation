@@ -6,6 +6,10 @@
   gather_facts: True # False #True
 
   tasks:
+    - name: Create directory with name "Results"
+      file: path={{results}} state=directory
+      run_once: true
+
     - name: Get IOS facts
       ios_facts:
         gather_subset: hardware  #all
@@ -16,8 +20,8 @@
     - name: Copy to results folder
       copy:
         content: |
-         {{ result.ansible_facts.ansible_net_serialnum }}
-        dest: "results/{{inventory_hostname}}_Serijska_stevilka.txt"
+         {{ result.ansible_facts|to_nice_yaml (indent=4) }}
+        dest: "results/{{inventory_hostname}}.yml"
       delegate_to: localhost   
 
 
