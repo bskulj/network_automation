@@ -1,0 +1,9 @@
+    - name: Get SNMP facts
+      snmp_facts:
+        host: "{{ansible_host}}"
+        version: v2
+        community: PUBLIC
+
+    - name: Get IOS facts
+      ios_facts:
+        gather_subset: hardware  #all

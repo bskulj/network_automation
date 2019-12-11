@@ -1,0 +1,20 @@
+    - name: Create directory with name "Results"
+      file: path={{results}} state=directory
+      run_once: true
+
+    - name: Create file uptime.log
+      file: path={{results}}/{{file_uptime}} state=touch
+      run_once: true
+
+    - template: src="../templates/uptime-text.j2" dest="{{results}}/{{file_uptime}}"
+      vars:
+        allhosts: "{{hostvars}}"
+      run_once: true
+
+#     - name: Get LineinFile
+#       lineinfile:
+#         dest:   "{{results}}/{{file_uptime}}"
+#         regexp: "{{inventory_hostname}}"
+#         line: |
+#           {{inventory_hostname}}  {{ansible_sysuptime}}
+# #          {{'%10s %10s %10s'|format(inventory_hostname, ansible_sysuptime, ansible_net_image)}}

@@ -1,0 +1,4 @@
+{% for hosts, facts in allhosts|dictsort %}
+{{facts.inventory_hostname}} {{facts.ansible_sysuptime}} {{facts.ansible_net_image}}
+{% endfor %}
+
