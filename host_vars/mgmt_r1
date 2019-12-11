@@ -17,79 +17,15 @@
     "device_network": "10.10.10.8",
     "device_wildcard_mask": "0.0.0.3"
   },
-  "GigabitEthernet0/10": {
+  "GigabitEthernet0/2": {
     "default": true,
     "description": "'EMPTY_PORT'"
   },
-  "GigabitEthernet0/15": {
+  "GigabitEthernet0/3": {
     "default": true,
     "description": "'EMPTY_PORT'"
   },
-  "GigabitEthernet0/16": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/17": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/18": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/19": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/23": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/24": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/33": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/34": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/35": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/36": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/37": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/38": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/39": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/41": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/45": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/46": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
-  },
-  "GigabitEthernet0/47": {
+  "GigabitEthernet0/4": {
     "default": true,
     "description": "'EMPTY_PORT'"
   },
@@ -112,7 +48,11 @@
   "GigabitEthernet0/9": {
     "default": true,
     "description": "'EMPTY_PORT'"
-  }
+  },
+  "GigabitEthernet0/10": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
 },
 "ntp_server_dst": "Last-Sun-Mar,02:00 Last-Sun-Oct,02:00",
 "ntp_server_ip_primary": "192.168.78.8",
@@ -150,7 +90,7 @@
 "snmp_server_ip": "192.168.45.4",
 "snmp_server_port": "162",
 "switch_interfaces": {},
-"syslog_server_ip": "182.168.78.9",
+"syslog_server_ip": "192.168.78.9",
 "syslog_server_port": "514",
 "syslog_server_protocol": "UDP"
 }

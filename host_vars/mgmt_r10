@@ -1,0 +1,96 @@
+{
+"device_family": "CISCO",
+"device_location": "LJU",
+"device_mgmt_interface": "loopback 0",
+"device_mgmt_mask": "255.255.255.255",
+"device_model": "3560G",
+"device_name": "mgmt_r10",
+"device_type": "MGMT_ROUTER_LEAF",
+"managed_devices": {
+  "GigabitEthernet0/1": {
+    "default": false,
+    "description": "'DEVICE: TEST_DUT -- PORT: None'",
+    "device_gw": "10.10.100.9",
+    "device_ip": "10.10.100.10",
+    "device_mask": "255.255.255.252",
+    "device_name": "DUT_TEST2",
+    "device_network": "10.10.100.8",
+    "device_wildcard_mask": "0.0.0.3"
+  },
+  "GigabitEthernet0/2": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/3": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/4": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/5": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/6": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/7": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/8": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/9": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+  "GigabitEthernet0/10": {
+    "default": true,
+    "description": "'EMPTY_PORT'"
+  },
+},
+"ntp_server_dst": "Last-Sun-Mar,02:00 Last-Sun-Oct,02:00",
+"ntp_server_ip_primary": "192.168.78.8",
+"ntp_server_ip_secondary": "192.168.78.9",
+"ntp_server_timezone": "+01:00",
+"router_interfaces": {
+  "GigabitEthernet0/51": {
+    "ip": "10.10.100.51",
+    "ipv6": "",
+    "ipv6_prefix_length": "",
+    "mask": "255.255.255.254",
+    "ospf_cost": "10",
+    "ospf_enable": true,
+    "type": "uplink"
+  },
+  "GigabitEthernet0/52": {
+    "ip": "10.10.10.100.52",
+    "ipv6": "",
+    "ipv6_prefix_length": "",
+    "mask": "255.255.255.254",
+    "ospf_cost": "1",
+    "ospf_enable": true,
+    "type": "uplink"
+  },
+  "Loopback0": {
+    "ip": "10.10.10.10",
+    "ipv6": "fd8d:c6a5:9662:ffff::10:10",
+    "ipv6_prefix_length": "128",
+    "mask": "255.255.255.255",
+    "ospf_enable": true,
+    "type": "loopback"
+  }
+},
+"snmp_server_community": "PUBLIC",
+"snmp_server_ip": "192.168.45.4",
+"snmp_server_port": "162",
+"switch_interfaces": {},
+"syslog_server_ip": "192.168.78.9",
+"syslog_server_port": "514",
+"syslog_server_protocol": "UDP"
+}

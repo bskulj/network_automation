@@ -1,11 +1,11 @@
-- name: Get state of routers
-  hosts: all # all #mgmt_r14
-  connection: local
+- name: Get facts for leaf routers
+  hosts: all # all #mgmt_r1
+  connection: network_cli
+  vars:
+    - results: "{{inventory_dir}}/results"
+    - file_uptime: uptime.log
+  gather_facts: True # False #True
 
-  tasks:
-    - name: Include connection data variables
-      include_vars:
-        file: vars/device_connection_data.yml
-
-    - include: tasks/find_error_disabled_ports.yml
-
+  tasks:    
+    - include: "tasks/read-{{src|default('device')}}.yml"
+    - include: "tasks/report-{{dst|default('text')}}.yml"

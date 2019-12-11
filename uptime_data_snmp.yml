@@ -1,14 +1,17 @@
 - name: Get facts for leaf routers
-  hosts: mgmt_r1 # all #mgmt_r1
+  hosts: all # all #mgmt_r1
   connection: network_cli
   vars:
     - results: results
+    - file_uptime: uptime.log
   gather_facts: True # False #True
 
   tasks:
     - name: Create directory with name "Results"
       file: path={{results}} state=directory
       run_once: true
+    - name: Create file uptime.log
+      file: path={{results}}/{{file_uptime}} state=touch
 
     - name: Get SNMP facts
       snmp_facts:
@@ -20,11 +23,26 @@
       ios_facts:
         gather_subset: hardware  #all
 
-    - debug: var=result
+#    - debug: var=result
+
+#      include_vars: "{{results}}/{{inventory_hostname}}.yml"
+
+    - name: Get LineinFile
+      lineinfile:
+        dest:   "{{results}}/{{file_uptime}}"
+        regexp: "{{inventory_hostname}}"
+        line: |
+          {{inventory_hostname}}  {{ansible_sysuptime}}
+#          {{'%10s %10s %10s'|format(inventory_hostname, ansible_sysuptime, ansible_net_image)}}
 
     - name: Copy to results folder
       copy:
         content: |
          {{ hostvars[inventory_hostname]|to_nice_yaml (indent=4) }}
         dest: "results/{{inventory_hostname}}.yml"
-      delegate_to: localhost  
+      delegate_to: localhost 
+
+
+
+
+ 
