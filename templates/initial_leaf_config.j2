@@ -1,0 +1,184 @@
+! This is initial configuration of the leaf router {{ inventory_hostname }}
+!
+! set profile and basic services then reload
+conf t
+sdm prefer dual-ipv4-and-ipv6 routing
+service unsupported-transceiver
+service password-encryption
+service timestamps debug datetime localtime show-timezone
+service timestamps log datetime localtime show-timezone
+end
+
+copy running-config startup-config
+<Enter>
+reload
+
+! IP basics
+conf t
+ip routing
+ipv6 unicast-routing
+ip cef distributed
+ipv6 cef distributed
+!
+! management essentials
+no ip domain-lookup
+ip domain-name slov.gnet.global.vpn
+hostname {{inventory_hostname}}
+vtp domain {{inventory_hostname |upper}}
+vtp mode transparent
+spanning-tree mode rapid-pvst
+lldp run
+no ip http server
+no ip http secure-server
+!
+archive
+ path flash:/backup_config_$h_
+ time-period 1440
+!
+crypto key generate rsa general-keys modulus 1024 exportable
+ip ssh version 2
+!
+! users
+aaa new-model
+enable secret {{device_enable_secret}}
+username {{device_ssh_username}} privilege 15 password {{device_ssh_password}}
+ip ftp username rftp
+ip ftp password {{device_ssh_password}}
+aaa authentication login default local line
+aaa authentication enable default enable
+aaa authorization exec default local if-authenticated
+!
+line vty 0 15
+exec-timeout 0 0
+password {{device_ssh_password}}
+transport input telnet ssh
+!
+! default interfaces
+default int range gi 0/1-52
+int range gi 0/1-52
+no switchport
+shutdown
+exit
+!
+#ip vrf mgmt
+#interface {{device_mgmt_interface}}
+#description MANAGEMENT
+#no switchport
+#ip vrf forwarding mgmt
+#ip address {{device_mgmt_ip}} {{device_mgmt_mask}}
+#no shutdown
+#exit
+#ip route vrf mgmt 0.0.0.0 0.0.0.0 {{device_mgmt_interface}} {{device_mgmt_gw}}
+!
+! router interfaces
+{% if "Loopback0" not in router_interfaces %}
+!
+! ============================================
+! PLEASE, DEFINE INTERFACE Loopback0
+! IT IS USED FOR IP MANAGEMENT AND ROUTER ID
+! ============================================
+!
+{% endif %}
+{% for intf in router_interfaces |sort %}
+interface {{intf}}
+shutdown
+ipv6 enable
+{% if router_interfaces[intf].type == "loopback" %}
+ip address {{router_interfaces[intf].ip}} 255.255.255.255
+{% if router_interfaces[intf].ipv6 %}
+ipv6 address {{router_interfaces[intf].ipv6}}/128
+{% endif %}
+{% else %}
+description {{router_interfaces[intf].type |upper}}
+ip address {{router_interfaces[intf].ip}} {{router_interfaces[intf].mask}} 
+{% if router_interfaces[intf].ipv6 %}
+ipv6 address {{router_interfaces[intf].ipv6}}/{{router_interfaces[intf].ipv6_prefix_length}} 
+{% endif %}
+{% endif %}
+no shutdown
+{% endfor %}
+!
+! time, syslog, snmp
+clock timezone {{ntp_server_timezone}}
+clock summer-time {{ntp_server_dst}}
+ntp source Loopback0
+ntp server {{ntp_server_ip_primary}}
+ntp server {{ntp_server_ip_secondary}}
+!
+snmp-server community {{snmp_server_community}} RO
+logging source-interface Loopback0
+logging host {{syslog_server_ip}}
+logging buffered 256000
+logging console errors
+!
+! routing
+router ospf 1
+router-id {{router_interfaces["Loopback0"].ip}}
+passive-interface default
+exit
+!
+ipv6 router ospf 1
+router-id {{router_interfaces["Loopback0"].ip}}
+passive-interface default
+exit
+!
+{% for intf in router_interfaces |sort %}
+{% if "ospf_enable" in router_interfaces[intf] %}
+interface {{intf}}
+ip ospf 1 area 0
+ipv6 ospf 1 area 0
+{% if router_interfaces[intf].type != "loopback" and "ospf_passive" not in router_interfaces[intf] %}
+ip ospf network point-to-point
+ip ospf cost {{router_interfaces[intf].ospf_cost}}
+ipv6 ospf network point-to-point
+ipv6 ospf cost {{router_interfaces[intf].ospf_cost}}
+{% endif %}
+exit
+{% endif %}
+{% endfor %}
+!
+router ospf 1
+{% for intf in router_interfaces |sort %}
+{% if "ospf_enable" in router_interfaces[intf] and "ospf_passive" not in router_interfaces[intf] %}
+{% if router_interfaces[intf].type != "loopback" %}
+no passive-interface {{intf}}
+{% endif %}
+{% endif %}
+{% endfor %}
+exit
+!
+ipv6 router ospf 1
+{% for intf in router_interfaces |sort %}
+{% if "ospf_enable" in router_interfaces[intf] and "ospf_passive" not in router_interfaces[intf] %}
+{% if router_interfaces[intf].type != "loopback" %}
+no passive-interface {{intf}}
+{% endif %}
+{% endif %}
+{% endfor %}
+exit
+!
+!
+! ============================================
+! this final section is temporary for managed devices connected directly to the spines
+! actually it should not be part of the initial config
+! and might be removed without prior notice
+! ============================================
+!
+{% for intf in managed_devices |sort %}
+{% if not managed_devices[intf].default %}
+interface {{intf}}
+no switchport
+{% if "description" in managed_devices[intf] %}
+description {{managed_devices[intf].description}}
+{% else %}
+description {{managed_devices[intf].type |upper}}
+{% endif %}
+ip address {{managed_devices[intf].device_gw}} {{managed_devices[intf].device_mask}}
+ip ospf 1 area 0
+no shutdown
+!
+{% endif %}
+{% endfor %}
+!
+!
+end
