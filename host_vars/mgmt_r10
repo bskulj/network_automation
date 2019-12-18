@@ -1,19 +1,21 @@
 {
 "device_family": "CISCO",
-"device_location": "LJU",
+"device_location": "Turjak",
 "device_mgmt_interface": "loopback 0",
 "device_mgmt_mask": "255.255.255.255",
 "device_model": "3560G",
 "device_name": "mgmt_r10",
+"device_ssh_username": "root",
+"device_ssh_password": "admin123",
 "device_type": "MGMT_ROUTER_LEAF",
 "managed_devices": {
   "GigabitEthernet0/1": {
     "default": false,
-    "description": "'DEVICE: TEST_DUT -- PORT: None'",
+    "description": "'DEVICE: TEST_DUT100'",
     "device_gw": "10.10.100.9",
     "device_ip": "10.10.100.10",
     "device_mask": "255.255.255.252",
-    "device_name": "DUT_TEST2",
+    "device_name": "DUT_TEST100",
     "device_network": "10.10.100.8",
     "device_wildcard_mask": "0.0.0.3"
   },
@@ -30,8 +32,14 @@
     "description": "'EMPTY_PORT'"
   },
   "GigabitEthernet0/5": {
-    "default": true,
-    "description": "'EMPTY_PORT'"
+    "default": false,
+    "description": "'DEVICE: TEST_DUT101'",
+    "device_gw": "10.10.100.13",
+    "device_ip": "10.10.100.14",
+    "device_mask": "255.255.255.252",
+    "device_name": "DUT_TEST101",
+    "device_network": "10.10.100.12",
+    "device_wildcard_mask": "0.0.0.3"
   },
   "GigabitEthernet0/6": {
     "default": true,
